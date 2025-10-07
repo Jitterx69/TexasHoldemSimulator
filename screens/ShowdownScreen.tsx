@@ -157,7 +157,6 @@ const ShowdownScreen: React.FC<ShowdownScreenProps> = ({ onClose }) => {
             <Text style={styles.dropdownArrow}>▼</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={styles.addWinnerButton}
             onPress={() => setShowWinnerModal(true)}
           >
           </TouchableOpacity>
@@ -381,15 +380,6 @@ const styles = StyleSheet.create({
   },
   selectedPlayerOption: {
     backgroundColor: '#4CAF50',
-  },
-  addWinnerButton: {
-    width: 50,
-    height: 50,
-    borderRadius: 25,
-    backgroundColor: '#3282b8',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginLeft: 10,
   },
 });
 
