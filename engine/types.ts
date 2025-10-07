@@ -13,6 +13,7 @@ export interface Player {
   allIn: boolean;
   holeCards: string[]; // Two hole cards
   actedThisRound: boolean; // Whether player has acted in current betting round
+  actionDeadline?: number; // Timestamp when action expires (for time bank)
 }
 
 export interface Action {
@@ -20,6 +21,8 @@ export interface Action {
   playerId: string;
   amount?: number;
   timestamp: number;
+  street?: Street;
+  pot?: number;
 }
 
 export interface SidePot {
@@ -35,6 +38,9 @@ export interface GameState {
   dealerSeat: number;
   smallBlind: number;
   bigBlind: number;
+  rakePercentage: number; // Rake percentage for the house
+  blindLevel: number; // Current blind level
+  blindSchedule?: { level: number; sb: number; bb: number }[]; // Blind schedule for tournaments
   pot: number; // total across main + side pots
   sidePots: SidePot[];
   currentBet: number; // highest bet this round
@@ -57,4 +63,5 @@ export interface RoomOptions {
   initialChips: number;
   smallBlind: number;
   bigBlind: number;
+  rakePercentage?: number; // Optional rake percentage (e.g., 0.05 for 5%)
 }
